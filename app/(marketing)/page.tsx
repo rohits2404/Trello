@@ -1,7 +1,14 @@
+import { auth } from "@clerk/nextjs/server";
+import { redirect } from "next/navigation";
 import { Marketing } from "@/features/marketing";
-import React from "react";
 
-const MarketingPage = () => {
+const MarketingPage = async () => {
+    const { userId, orgId } = await auth();
+
+    if (userId && orgId) {
+        redirect(`/organization/${orgId}`);
+    }
+
     return <Marketing />;
 };
 
