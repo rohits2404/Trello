@@ -68,19 +68,27 @@ export const ListForm = () => {
                 <form
                     action={onSubmit}
                     ref={formRef}
-                    className="w-full p-3 rounded-md bg-white space-y-4 shadow-md"
+                    className="w-full rounded-md bg-white p-3 shadow-md space-y-4"
                 >
                     <FormInput
                         ref={inputRef}
                         errors={fieldErrors}
                         id="title"
                         className="text-sm px-2 py-1 h-7 font-medium border-transparent hover:border-input focus:border-input transition"
-                        placeholder="Enter list title..."
+                        placeholder="Enter List Title..."
                     />
-                    <input hidden value={params.boardId} name="boardId" />
+
+                    <input
+                        type="hidden"
+                        name="boardId"
+                        defaultValue={params.boardId as string}
+                    />
+
                     <div className="flex items-center gap-x-1">
                         <FormSubmit>Add List</FormSubmit>
+
                         <Button
+                            type="button"
                             onClick={disableEditing}
                             size="sm"
                             variant="ghost"
