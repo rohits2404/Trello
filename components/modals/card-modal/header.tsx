@@ -25,7 +25,7 @@ export const Header = ({ data }: HeaderProps) => {
 
     const [title, setTitle] = useState(data.title);
 
-     const { execute } = useAction(updateCard, {
+    const { execute } = useAction(updateCard, {
         onSuccess: (data) => {
             queryClient.invalidateQueries({
                 queryKey: ["card", data.id],
