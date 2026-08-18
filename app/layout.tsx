@@ -4,6 +4,8 @@ import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "sonner";
+import { ModalProvider } from "@/components/providers/modal-provider";
+import { QueryProvider } from "@/components/providers/query-provider";
 
 const inter = Inter({
     subsets: ["latin"],
@@ -24,8 +26,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <html lang="en">
             <body className={inter.variable}>
                 <ClerkProvider>
-                    <Toaster />
-                    <TooltipProvider>{children}</TooltipProvider>
+                    <QueryProvider>
+                        <Toaster />
+                        <ModalProvider />
+                        <TooltipProvider>{children}</TooltipProvider>
+                    </QueryProvider>
                 </ClerkProvider>
             </body>
         </html>
