@@ -20,7 +20,7 @@ const nextConfig: NextConfig = {
     experimental: {
         serverActions: {
             allowedOrigins: [
-                "curly-space-invention-7qrqrgrj99wcppr7-3000.app.github.dev",
+                "flow-desk-trello.vercel.app",
                 "localhost:3000",
             ],
         },
